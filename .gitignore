@@ -1,0 +1,13 @@
+.ctags
+
+/platforms/android/bin/
+/platforms/android/gen/
+/platforms/android/libs/
+/platforms/android/obj/
+
+/out_*
+/Makefile
+*.Makefile
+*.target.mk
+
+/platforms/android/assets

@@ -1,0 +1,3 @@
+[submodule "nanaka"]
+	path = nanaka
+	url = git@github.com:mathall/nanaka.git
