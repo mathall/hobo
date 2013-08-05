@@ -15,7 +15,7 @@ include $(SOURCE_ROOT)/nanaka/build/assets.mk
 GYP_FLAGS += -Dandroid_ndk_root=$(ANDROID_NDK)
 
 NDK_BUILD_FLAGS := APP_STL=gnustl_shared
-NDK_BUILD_FLAGS += NDK_TOOLCHAIN_VERSION=4.7
+NDK_BUILD_FLAGS += NDK_TOOLCHAIN_VERSION=4.8
 NDK_BUILD_FLAGS += NANAKA_LIB_DIR=../../../../$(OUT_DIR)/$(BUILDTYPE)
 NDK_BUILD_FLAGS += GAME_LIB=../../../../$(OUT_DIR)/$(BUILDTYPE)/libhobo.a
 ifeq ($(DEBUG), 1)
