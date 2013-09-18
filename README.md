@@ -6,7 +6,7 @@ Hobo is a clone of an old flash game called Nanaca Crash. (bing it!) It uses the
 Fetch
 -----
 
-By git: (need a github account)
+By ssh: (need a github account)
 
     git clone --recursive git@github.com:mathall/hobo.git
 
@@ -14,8 +14,9 @@ By https:
 
     git clone https://github.com/mathall/hobo
     
+    # The submodule pointer uses ssh, need to clone the rest manually for https.
     cd hobo
-    rm -rf nanaka # submodules over https seem to not work so well..
+    rm -rf nanaka
     git clone https://github.com/mathall/nanaka
 
 Build and run (linux)
