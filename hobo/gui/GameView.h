@@ -45,6 +45,8 @@ class GameViewClient
 {
 public:
 
+	virtual ~GameViewClient(){}
+
 	virtual void ScreenTouched() = 0;
 	virtual void Pause() = 0;
 	virtual void Unpause() = 0;
@@ -60,7 +62,7 @@ enum GameViewState
 	GameViewStateStoped,
 };
 
-class GameView
+class GameView final
 	: public PanelListener
 	, public ButtonListener
 	, public DPadListener

@@ -41,6 +41,8 @@ class MenuViewClient
 {
 public:
 
+	virtual ~MenuViewClient(){}
+
 	virtual void Shutdown() = 0;
 };
 
@@ -52,7 +54,7 @@ enum MenuViewState
 	MenuViewStateExitStarted,
 };
 
-class MenuView : public ButtonListener
+class MenuView final : public ButtonListener
 {
 public:
 
