@@ -30,6 +30,7 @@
 
 #include "nanaka/game/GameObject.h"
 #include "nanaka/physics/CollisionListener.h"
+#include "nanaka/sound/Sound.h"
 
 enum TriggerType
 {
@@ -106,6 +107,8 @@ private:
 	Player& m_player;
 
 	bool m_collisionRegistered;
+
+	Sound m_sound;
 };
 
 inline TriggerType Trigger::GetType() const

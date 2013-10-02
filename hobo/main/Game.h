@@ -31,6 +31,7 @@
 
 #include "nanaka/gui/RenderTargetPanel.h"
 #include "nanaka/main/World.h"
+#include "nanaka/sound/Sound.h"
 
 #include "gui/GameView.h"
 #include "main/CameraObject.h"
@@ -89,10 +90,13 @@ private:
 	std::unique_ptr<ComboController> m_comboController;
 	std::unique_ptr<TriggerManager> m_triggerManager;
 	std::vector<std::unique_ptr<Layer>> m_layers;
+
+	Sound m_sound;
 };
 
 inline void Game::Unpause()
 {
+	m_sound.Unpause();
 	m_gameState = GameStateRunning;
 }
 

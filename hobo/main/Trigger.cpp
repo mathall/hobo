@@ -46,6 +46,7 @@ Trigger::Trigger(
 	, m_timeController(timeController)
 	, m_comboController(comboController)
 	, m_player(player)
+	, m_sound("Sounds/trigger.ogg")
 {
 }
 
@@ -91,6 +92,8 @@ void Trigger::OnCollision(const Collision& collision)
 		}
 
 		m_player.TriggerCollision();
+
+		m_sound.PlayOnce();
 	}
 	m_collisionRegistered = true;
 }

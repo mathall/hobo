@@ -39,6 +39,7 @@ Game::Game(INanaka* nanaka, std::unique_ptr<GameView> gameView)
 	: m_nanaka(nanaka)
 	, m_world(std::make_shared<World>())
 	, m_gameView(std::move(gameView))
+	, m_sound("Sounds/loop.ogg")
 {
 	m_gameView->SetClient(this);
 	m_gameView->GetRenderPanel()->SetRenderTargetPanelListener(this);
@@ -108,6 +109,7 @@ void Game::Update()
 
 	if (m_player->IsStopped())
 	{
+		m_sound.Stop();
 		m_gameView->StateTransition(GameViewStateStoped);
 	}
 
@@ -116,6 +118,7 @@ void Game::Update()
 
 void Game::KickOff(float angle, float strength)
 {
+	m_sound.Repeat();
 	m_player->KickOff(angle, strength);
 	m_triggerManager->KickOff();
 }
@@ -156,12 +159,14 @@ void Game::ScreenTouched()
 
 void Game::Pause()
 {
+	m_sound.Pause();
 	m_gameState = GameStatePaused;
 	m_gameView->StateTransition(GameViewStatePaused);
 }
 
 void Game::Restart()
 {
+	m_sound.Stop();
 	m_triggerManager->Reset(0.0f);
 	m_player->Reset(0.0f);
 	m_comboController->Reset();
