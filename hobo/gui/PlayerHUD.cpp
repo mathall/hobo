@@ -61,19 +61,20 @@ PlayerHUD::PlayerHUD(
 		font, 24.0f, dipGUISizeUnit, 5, 2, ' ');
 	m_heightPanelVisible = false;
 
-	const LayoutProperties defaultWidgetLayoutProps;
+	LayoutProperties growHorizontalPanelLayoutProps;
+	growHorizontalPanelLayoutProps.m_growHorizontally = true;
 
 	// Speed panel
 	{
 		speedPanel->SetLayoutMethod(LayoutMethod(
 			LayoutMethod::Linear, LayoutMethod::Horizontal));
-		speedPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		speedPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto speedLabel = std::make_shared<StaticText>(
 			"Speed: ", font, 24.0f, dipGUISizeUnit);
 
 		auto spacerPanel = std::make_shared<Panel>();
-		spacerPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		spacerPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto unitText = std::make_shared<StaticText>(
 			"mps", font, 24.0f, dipGUISizeUnit);
@@ -88,13 +89,13 @@ PlayerHUD::PlayerHUD(
 	{
 		scorePanel->SetLayoutMethod(LayoutMethod(
 			LayoutMethod::Linear, LayoutMethod::Horizontal));
-		scorePanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		scorePanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto scoreLabel = std::make_shared<StaticText>(
 			"Distance: ", font, 24.0f, dipGUISizeUnit);
 
 		auto spacerPanel = std::make_shared<Panel>();
-		spacerPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		spacerPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto unitText = std::make_shared<StaticText>(
 			"m  ", font, 24.0f, dipGUISizeUnit);
@@ -110,7 +111,7 @@ PlayerHUD::PlayerHUD(
 		FPSPanel->SetLayoutMethod(LayoutMethod(
 			LayoutMethod::Linear, LayoutMethod::Horizontal,
 			LayoutMethod::Left));
-		FPSPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		FPSPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto FPSLabel = std::make_shared<StaticText>(
 			"FpS: ", font, 24.0f, dipGUISizeUnit);
@@ -123,7 +124,7 @@ PlayerHUD::PlayerHUD(
 	{
 		soarPanel->SetLayoutMethod(LayoutMethod(
 			LayoutMethod::Linear, LayoutMethod::Horizontal));
-		soarPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		soarPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto soarLabel = std::make_shared<StaticText>(
 			"SoAr:   ", font, 24.0f, dipGUISizeUnit);
@@ -136,7 +137,7 @@ PlayerHUD::PlayerHUD(
 	{
 		ascentPanel->SetLayoutMethod(LayoutMethod(
 			LayoutMethod::Linear, LayoutMethod::Horizontal));
-		ascentPanel->SetLayoutProperties(defaultWidgetLayoutProps);
+		ascentPanel->SetLayoutProperties(growHorizontalPanelLayoutProps);
 
 		auto ascentLabel = std::make_shared<StaticText>(
 			"AsCeNt: ", font, 24.0f, dipGUISizeUnit);

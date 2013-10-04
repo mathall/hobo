@@ -128,6 +128,7 @@ GameView::GameView(
 			auto HUDLeftContentPanel = std::make_shared<Panel>();
 			LayoutProperties HUDLeftContentLayoutProps;
 			HUDLeftContentLayoutProps.m_sizeWeight = 3.0f;
+			HUDLeftContentLayoutProps.m_growVertically = true;
 			HUDLeftContentPanel->SetLayoutProperties(HUDLeftContentLayoutProps);
 
 			HUDLeftPanel->AddWidget(spacerPanel);
@@ -150,6 +151,7 @@ GameView::GameView(
 			auto HUDMiddleContentPanel = std::make_shared<Panel>();
 			LayoutProperties HUDMiddleContentLayoutProps;
 			HUDMiddleContentLayoutProps.m_sizeWeight = 3.0f;
+			HUDMiddleContentLayoutProps.m_growVertically = true;
 			HUDMiddleContentPanel->SetLayoutProperties(
 				HUDMiddleContentLayoutProps);
 
@@ -169,9 +171,14 @@ GameView::GameView(
 			m_DPad->SetLayoutProperties(DPadLayoutProps);
 			DPadPanel->AddWidget(m_DPad);
 
+			auto comboTimerPanel = std::make_shared<Panel>();
+			comboTimerPanel->SetLayoutMethod(
+				LayoutMethod(LayoutMethod::Linear));
+			comboTimerPanel->AddWidget(comboTimerCounter);
+
 			HUDMiddleContentPanel->AddWidget(DPadPanel);
 			HUDMiddleContentPanel->AddWidget(heightPanel);
-			HUDMiddleContentPanel->AddWidget(comboTimerCounter);
+			HUDMiddleContentPanel->AddWidget(comboTimerPanel);
 		}
 
 		// HUD Right
