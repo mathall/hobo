@@ -2,7 +2,7 @@
   'targets': [
     {
       'target_name': 'hobo',
-      'type': 'static_library',
+      'type': '<(library_type)',
       'include_dirs': [
         '../..',
         '../../hobo',
