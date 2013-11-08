@@ -98,6 +98,10 @@ int LinuxApplication::Run()
 			}
 		}
 		mousePosition = newPosition;
+
+#if defined(SINGLE_THREADED)
+		m_nanaka.ThreadLoop();
+#endif // defined(SINGLE_THREADED)
 	}
 
 	m_nanaka.OnPause();
