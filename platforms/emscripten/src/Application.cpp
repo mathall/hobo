@@ -37,7 +37,6 @@ public:
 	 * GLContextManager implementation.
 	 */
 	void CreateContext(NanakaNativeWindow& nativeWindow) override {}
-	void DestroyContext(NanakaNativeWindow& nativeWindow) override {}
 	void CreateSurface(NanakaNativeWindow& nativeWindow) override {}
 	void Swap(NanakaNativeWindow& nativeWindow) override;
 };
@@ -121,6 +120,7 @@ int WebApplication::Finalize()
 	m_nanaka.OnPause();
 	m_nanaka.KillThread();
 
+	glfwTerminate();
 	return 0;
 }
 

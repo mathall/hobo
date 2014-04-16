@@ -107,6 +107,7 @@ int OSXApplication::Run()
 	m_nanaka.OnPause();
 	m_nanaka.KillThread();
 
+	glfwTerminate();
 	return 0;
 }
 
